@@ -1,0 +1,301 @@
+==26444== Memcheck, a memory error detector
+==26444== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==26444== Using Valgrind-3.14.0 and LibVEX; rerun with -h for copyright info
+==26444== Command: /home/cpisz/git-workspace/QMainWindowLeaks/cmake-build-debug/qtproblems
+==26444== Parent PID: 31394
+==26444== 
+==26444== 
+==26444== HEAP SUMMARY:
+==26444==     in use at exit: 305,230 bytes in 6,852 blocks
+==26444==   total heap usage: 107,812 allocs, 100,960 frees, 232,668,695 bytes allocated
+==26444== 
+==26444== 38 bytes in 1 blocks are definitely lost in loss record 73 of 284
+==26444==    at 0x4C29E63: malloc (vg_replace_malloc.c:309)
+==26444==    by 0x1664CF1E: ???
+==26444==    by 0x1662FC54: ???
+==26444==    by 0x1327FC80: q_dbus_bus_get_private(DBusBusType, DBusError*) (qdbus_symbols_p.h:198)
+==26444==    by 0x13280818: QDBusConnectionManager::executeConnectionRequest(QDBusConnectionManager::ConnectionRequestData*) (qdbusconnection.cpp:263)
+==26444==    by 0x13286D27: QtPrivate::FunctorCall<QtPrivate::IndexesList<0>, QtPrivate::List<QDBusConnectionManager::ConnectionRequestData*>, void, void (QDBusConnectionManager::*)(QDBusConnectionManager::ConnectionRequestData*)>::call(void (QDBusConnectionManager::*)(QDBusConnectionManager::ConnectionRequestData*), QDBusConnectionManager*, void**) (qobjectdefs_impl.h:152)
+==26444==    by 0x13286ABC: void QtPrivate::FunctionPointer<void (QDBusConnectionManager::*)(QDBusConnectionManager::ConnectionRequestData*)>::call<QtPrivate::List<QDBusConnectionManager::ConnectionRequestData*>, void>(void (QDBusConnectionManager::*)(QDBusConnectionManager::ConnectionRequestData*), QDBusConnectionManager*, void**) (qobjectdefs_impl.h:185)
+==26444==    by 0x13285FF3: QtPrivate::QSlotObject<void (QDBusConnectionManager::*)(QDBusConnectionManager::ConnectionRequestData*), QtPrivate::List<QDBusConnectionManager::ConnectionRequestData*>, void>::impl(int, QtPrivate::QSlotObjectBase*, QObject*, void**, bool*) (qobjectdefs_impl.h:414)
+==26444==    by 0x670D63C: QtPrivate::QSlotObjectBase::call(QObject*, void**) (qobjectdefs_impl.h:394)
+==26444==    by 0x673DB2E: QMetaCallEvent::placeMetaCall(QObject*) (qobject.cpp:619)
+==26444==    by 0x673EAF3: QObject::event(QEvent*) (qobject.cpp:1339)
+==26444==    by 0x649CA55: QThread::event(QEvent*) (qthread.cpp:980)
+==26444== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   obj:*
+   obj:*
+   fun:_ZL22q_dbus_bus_get_private11DBusBusTypeP9DBusError
+   fun:_ZN22QDBusConnectionManager24executeConnectionRequestEPNS_21ConnectionRequestDataE
+   fun:_ZN9QtPrivate11FunctorCallINS_11IndexesListIJLi0EEEENS_4ListIJPN22QDBusConnectionManager21ConnectionRequestDataEEEEvMS4_FvS6_EE4callES9_PS4_PPv
+   fun:_ZN9QtPrivate15FunctionPointerIM22QDBusConnectionManagerFvPNS1_21ConnectionRequestDataEEE4callINS_4ListIJS3_EEEvEEvS5_PS1_PPv
+   fun:_ZN9QtPrivate11QSlotObjectIM22QDBusConnectionManagerFvPNS1_21ConnectionRequestDataEENS_4ListIJS3_EEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb
+   fun:_ZN9QtPrivate15QSlotObjectBase4callEP7QObjectPPv
+   fun:_ZN14QMetaCallEvent13placeMetaCallEP7QObject
+   fun:_ZN7QObject5eventEP6QEvent
+   fun:_ZN7QThread5eventEP6QEvent
+}
+==26444== 72 (24 direct, 48 indirect) bytes in 1 blocks are definitely lost in loss record 141 of 284
+==26444==    at 0x4C29E63: malloc (vg_replace_malloc.c:309)
+==26444==    by 0x1664ED05: ???
+==26444==    by 0x1664ED66: ???
+==26444==    by 0x1662F97D: ???
+==26444==    by 0x1327FC80: q_dbus_bus_get_private(DBusBusType, DBusError*) (qdbus_symbols_p.h:198)
+==26444==    by 0x13280818: QDBusConnectionManager::executeConnectionRequest(QDBusConnectionManager::ConnectionRequestData*) (qdbusconnection.cpp:263)
+==26444==    by 0x13286D27: QtPrivate::FunctorCall<QtPrivate::IndexesList<0>, QtPrivate::List<QDBusConnectionManager::ConnectionRequestData*>, void, void (QDBusConnectionManager::*)(QDBusConnectionManager::ConnectionRequestData*)>::call(void (QDBusConnectionManager::*)(QDBusConnectionManager::ConnectionRequestData*), QDBusConnectionManager*, void**) (qobjectdefs_impl.h:152)
+==26444==    by 0x13286ABC: void QtPrivate::FunctionPointer<void (QDBusConnectionManager::*)(QDBusConnectionManager::ConnectionRequestData*)>::call<QtPrivate::List<QDBusConnectionManager::ConnectionRequestData*>, void>(void (QDBusConnectionManager::*)(QDBusConnectionManager::ConnectionRequestData*), QDBusConnectionManager*, void**) (qobjectdefs_impl.h:185)
+==26444==    by 0x13285FF3: QtPrivate::QSlotObject<void (QDBusConnectionManager::*)(QDBusConnectionManager::ConnectionRequestData*), QtPrivate::List<QDBusConnectionManager::ConnectionRequestData*>, void>::impl(int, QtPrivate::QSlotObjectBase*, QObject*, void**, bool*) (qobjectdefs_impl.h:414)
+==26444==    by 0x670D63C: QtPrivate::QSlotObjectBase::call(QObject*, void**) (qobjectdefs_impl.h:394)
+==26444==    by 0x673DB2E: QMetaCallEvent::placeMetaCall(QObject*) (qobject.cpp:619)
+==26444==    by 0x673EAF3: QObject::event(QEvent*) (qobject.cpp:1339)
+==26444== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   obj:*
+   obj:*
+   obj:*
+   fun:_ZL22q_dbus_bus_get_private11DBusBusTypeP9DBusError
+   fun:_ZN22QDBusConnectionManager24executeConnectionRequestEPNS_21ConnectionRequestDataE
+   fun:_ZN9QtPrivate11FunctorCallINS_11IndexesListIJLi0EEEENS_4ListIJPN22QDBusConnectionManager21ConnectionRequestDataEEEEvMS4_FvS6_EE4callES9_PS4_PPv
+   fun:_ZN9QtPrivate15FunctionPointerIM22QDBusConnectionManagerFvPNS1_21ConnectionRequestDataEEE4callINS_4ListIJS3_EEEvEEvS5_PS1_PPv
+   fun:_ZN9QtPrivate11QSlotObjectIM22QDBusConnectionManagerFvPNS1_21ConnectionRequestDataEENS_4ListIJS3_EEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb
+   fun:_ZN9QtPrivate15QSlotObjectBase4callEP7QObjectPPv
+   fun:_ZN14QMetaCallEvent13placeMetaCallEP7QObject
+   fun:_ZN7QObject5eventEP6QEvent
+}
+==26444== 73 bytes in 1 blocks are definitely lost in loss record 142 of 284
+==26444==    at 0x4C29E63: malloc (vg_replace_malloc.c:309)
+==26444==    by 0x1664CF1E: ???
+==26444==    by 0x1662F3B4: ???
+==26444==    by 0x1662FAC2: ???
+==26444==    by 0x1327FC80: q_dbus_bus_get_private(DBusBusType, DBusError*) (qdbus_symbols_p.h:198)
+==26444==    by 0x13280818: QDBusConnectionManager::executeConnectionRequest(QDBusConnectionManager::ConnectionRequestData*) (qdbusconnection.cpp:263)
+==26444==    by 0x13286D27: QtPrivate::FunctorCall<QtPrivate::IndexesList<0>, QtPrivate::List<QDBusConnectionManager::ConnectionRequestData*>, void, void (QDBusConnectionManager::*)(QDBusConnectionManager::ConnectionRequestData*)>::call(void (QDBusConnectionManager::*)(QDBusConnectionManager::ConnectionRequestData*), QDBusConnectionManager*, void**) (qobjectdefs_impl.h:152)
+==26444==    by 0x13286ABC: void QtPrivate::FunctionPointer<void (QDBusConnectionManager::*)(QDBusConnectionManager::ConnectionRequestData*)>::call<QtPrivate::List<QDBusConnectionManager::ConnectionRequestData*>, void>(void (QDBusConnectionManager::*)(QDBusConnectionManager::ConnectionRequestData*), QDBusConnectionManager*, void**) (qobjectdefs_impl.h:185)
+==26444==    by 0x13285FF3: QtPrivate::QSlotObject<void (QDBusConnectionManager::*)(QDBusConnectionManager::ConnectionRequestData*), QtPrivate::List<QDBusConnectionManager::ConnectionRequestData*>, void>::impl(int, QtPrivate::QSlotObjectBase*, QObject*, void**, bool*) (qobjectdefs_impl.h:414)
+==26444==    by 0x670D63C: QtPrivate::QSlotObjectBase::call(QObject*, void**) (qobjectdefs_impl.h:394)
+==26444==    by 0x673DB2E: QMetaCallEvent::placeMetaCall(QObject*) (qobject.cpp:619)
+==26444==    by 0x673EAF3: QObject::event(QEvent*) (qobject.cpp:1339)
+==26444== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   obj:*
+   obj:*
+   obj:*
+   fun:_ZL22q_dbus_bus_get_private11DBusBusTypeP9DBusError
+   fun:_ZN22QDBusConnectionManager24executeConnectionRequestEPNS_21ConnectionRequestDataE
+   fun:_ZN9QtPrivate11FunctorCallINS_11IndexesListIJLi0EEEENS_4ListIJPN22QDBusConnectionManager21ConnectionRequestDataEEEEvMS4_FvS6_EE4callES9_PS4_PPv
+   fun:_ZN9QtPrivate15FunctionPointerIM22QDBusConnectionManagerFvPNS1_21ConnectionRequestDataEEE4callINS_4ListIJS3_EEEvEEvS5_PS1_PPv
+   fun:_ZN9QtPrivate11QSlotObjectIM22QDBusConnectionManagerFvPNS1_21ConnectionRequestDataEENS_4ListIJS3_EEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb
+   fun:_ZN9QtPrivate15QSlotObjectBase4callEP7QObjectPPv
+   fun:_ZN14QMetaCallEvent13placeMetaCallEP7QObject
+   fun:_ZN7QObject5eventEP6QEvent
+}
+==26444== 73 bytes in 1 blocks are definitely lost in loss record 143 of 284
+==26444==    at 0x4C29E63: malloc (vg_replace_malloc.c:309)
+==26444==    by 0x1664CF1E: ???
+==26444==    by 0x1662FCAD: ???
+==26444==    by 0x1327FC80: q_dbus_bus_get_private(DBusBusType, DBusError*) (qdbus_symbols_p.h:198)
+==26444==    by 0x13280818: QDBusConnectionManager::executeConnectionRequest(QDBusConnectionManager::ConnectionRequestData*) (qdbusconnection.cpp:263)
+==26444==    by 0x13286D27: QtPrivate::FunctorCall<QtPrivate::IndexesList<0>, QtPrivate::List<QDBusConnectionManager::ConnectionRequestData*>, void, void (QDBusConnectionManager::*)(QDBusConnectionManager::ConnectionRequestData*)>::call(void (QDBusConnectionManager::*)(QDBusConnectionManager::ConnectionRequestData*), QDBusConnectionManager*, void**) (qobjectdefs_impl.h:152)
+==26444==    by 0x13286ABC: void QtPrivate::FunctionPointer<void (QDBusConnectionManager::*)(QDBusConnectionManager::ConnectionRequestData*)>::call<QtPrivate::List<QDBusConnectionManager::ConnectionRequestData*>, void>(void (QDBusConnectionManager::*)(QDBusConnectionManager::ConnectionRequestData*), QDBusConnectionManager*, void**) (qobjectdefs_impl.h:185)
+==26444==    by 0x13285FF3: QtPrivate::QSlotObject<void (QDBusConnectionManager::*)(QDBusConnectionManager::ConnectionRequestData*), QtPrivate::List<QDBusConnectionManager::ConnectionRequestData*>, void>::impl(int, QtPrivate::QSlotObjectBase*, QObject*, void**, bool*) (qobjectdefs_impl.h:414)
+==26444==    by 0x670D63C: QtPrivate::QSlotObjectBase::call(QObject*, void**) (qobjectdefs_impl.h:394)
+==26444==    by 0x673DB2E: QMetaCallEvent::placeMetaCall(QObject*) (qobject.cpp:619)
+==26444==    by 0x673EAF3: QObject::event(QEvent*) (qobject.cpp:1339)
+==26444==    by 0x649CA55: QThread::event(QEvent*) (qthread.cpp:980)
+==26444== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   obj:*
+   obj:*
+   fun:_ZL22q_dbus_bus_get_private11DBusBusTypeP9DBusError
+   fun:_ZN22QDBusConnectionManager24executeConnectionRequestEPNS_21ConnectionRequestDataE
+   fun:_ZN9QtPrivate11FunctorCallINS_11IndexesListIJLi0EEEENS_4ListIJPN22QDBusConnectionManager21ConnectionRequestDataEEEEvMS4_FvS6_EE4callES9_PS4_PPv
+   fun:_ZN9QtPrivate15FunctionPointerIM22QDBusConnectionManagerFvPNS1_21ConnectionRequestDataEEE4callINS_4ListIJS3_EEEvEEvS5_PS1_PPv
+   fun:_ZN9QtPrivate11QSlotObjectIM22QDBusConnectionManagerFvPNS1_21ConnectionRequestDataEENS_4ListIJS3_EEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb
+   fun:_ZN9QtPrivate15QSlotObjectBase4callEP7QObjectPPv
+   fun:_ZN14QMetaCallEvent13placeMetaCallEP7QObject
+   fun:_ZN7QObject5eventEP6QEvent
+   fun:_ZN7QThread5eventEP6QEvent
+}
+==26444== 520 bytes in 13 blocks are definitely lost in loss record 198 of 284
+==26444==    at 0x4C29E63: malloc (vg_replace_malloc.c:309)
+==26444==    by 0x16655141: ???
+==26444==    by 0x16648EF4: ???
+==26444==    by 0x16649068: ???
+==26444==    by 0x1664D509: ???
+==26444==    by 0x16641F8A: ???
+==26444==    by 0x1327FDED: q_dbus_get_local_machine_id() (qdbus_symbols_p.h:435)
+==26444==    by 0x13282716: QDBusConnection::localMachineId() (qdbusconnection.cpp:1251)
+==26444==    by 0x163F7054: QIBusPlatformInputContextPrivate::getSocketPath() (qibusplatforminputcontext.cpp:733)
+==26444==    by 0x163F72B0: QIBusPlatformInputContextPrivate::createConnection() (qibusplatforminputcontext.cpp:741)
+==26444==    by 0x163F675F: QIBusPlatformInputContextPrivate::initBus() (qibusplatforminputcontext.cpp:648)
+==26444==    by 0x163F669E: QIBusPlatformInputContextPrivate::QIBusPlatformInputContextPrivate() (qibusplatforminputcontext.cpp:638)
+==26444== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   fun:_ZL27q_dbus_get_local_machine_idv
+   fun:_ZN15QDBusConnection14localMachineIdEv
+   fun:_ZN32QIBusPlatformInputContextPrivate13getSocketPathEv
+   fun:_ZN32QIBusPlatformInputContextPrivate16createConnectionEv
+   fun:_ZN32QIBusPlatformInputContextPrivate7initBusEv
+   fun:_ZN32QIBusPlatformInputContextPrivateC1Ev
+}
+==26444== 545 (184 direct, 361 indirect) bytes in 1 blocks are definitely lost in loss record 199 of 284
+==26444==    at 0x4C2BF79: calloc (vg_replace_malloc.c:762)
+==26444==    by 0x1663CA74: ???
+==26444==    by 0x166414AE: ???
+==26444==    by 0x16649CB7: ???
+==26444==    by 0x16649DD2: ???
+==26444==    by 0x1664A87E: ???
+==26444==    by 0x1664B0F0: ???
+==26444==    by 0x16649A77: ???
+==26444==    by 0x16632FCC: ???
+==26444==    by 0x1328AB07: q_dbus_watch_handle(DBusWatch*, unsigned int) (qdbus_symbols_p.h:275)
+==26444==    by 0x13290700: QDBusConnectionPrivate::socketRead(int) (qdbusintegrator.cpp:1213)
+==26444==    by 0x132A6513: QtPrivate::FunctorCall<QtPrivate::IndexesList<0>, QtPrivate::List<int>, void, void (QDBusConnectionPrivate::*)(int)>::call(void (QDBusConnectionPrivate::*)(int), QDBusConnectionPrivate*, void**) (qobjectdefs_impl.h:152)
+==26444== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:calloc
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   fun:_ZL19q_dbus_watch_handleP9DBusWatchj
+   fun:_ZN22QDBusConnectionPrivate10socketReadEi
+   fun:_ZN9QtPrivate11FunctorCallINS_11IndexesListIJLi0EEEENS_4ListIJiEEEvM22QDBusConnectionPrivateFviEE4callES7_PS5_PPv
+}
+==26444== 727 (184 direct, 543 indirect) bytes in 1 blocks are definitely lost in loss record 208 of 284
+==26444==    at 0x4C2BF79: calloc (vg_replace_malloc.c:762)
+==26444==    by 0x1663CA74: ???
+==26444==    by 0x1663D871: ???
+==26444==    by 0x1662F774: ???
+==26444==    by 0x1327FC3B: q_dbus_bus_register(DBusConnection*, DBusError*) (qdbus_symbols_p.h:195)
+==26444==    by 0x132808BE: QDBusConnectionManager::executeConnectionRequest(QDBusConnectionManager::ConnectionRequestData*) (qdbusconnection.cpp:276)
+==26444==    by 0x13286D27: QtPrivate::FunctorCall<QtPrivate::IndexesList<0>, QtPrivate::List<QDBusConnectionManager::ConnectionRequestData*>, void, void (QDBusConnectionManager::*)(QDBusConnectionManager::ConnectionRequestData*)>::call(void (QDBusConnectionManager::*)(QDBusConnectionManager::ConnectionRequestData*), QDBusConnectionManager*, void**) (qobjectdefs_impl.h:152)
+==26444==    by 0x13286ABC: void QtPrivate::FunctionPointer<void (QDBusConnectionManager::*)(QDBusConnectionManager::ConnectionRequestData*)>::call<QtPrivate::List<QDBusConnectionManager::ConnectionRequestData*>, void>(void (QDBusConnectionManager::*)(QDBusConnectionManager::ConnectionRequestData*), QDBusConnectionManager*, void**) (qobjectdefs_impl.h:185)
+==26444==    by 0x13285FF3: QtPrivate::QSlotObject<void (QDBusConnectionManager::*)(QDBusConnectionManager::ConnectionRequestData*), QtPrivate::List<QDBusConnectionManager::ConnectionRequestData*>, void>::impl(int, QtPrivate::QSlotObjectBase*, QObject*, void**, bool*) (qobjectdefs_impl.h:414)
+==26444==    by 0x670D63C: QtPrivate::QSlotObjectBase::call(QObject*, void**) (qobjectdefs_impl.h:394)
+==26444==    by 0x673DB2E: QMetaCallEvent::placeMetaCall(QObject*) (qobject.cpp:619)
+==26444==    by 0x673EAF3: QObject::event(QEvent*) (qobject.cpp:1339)
+==26444== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:calloc
+   obj:*
+   obj:*
+   obj:*
+   fun:_ZL19q_dbus_bus_registerP14DBusConnectionP9DBusError
+   fun:_ZN22QDBusConnectionManager24executeConnectionRequestEPNS_21ConnectionRequestDataE
+   fun:_ZN9QtPrivate11FunctorCallINS_11IndexesListIJLi0EEEENS_4ListIJPN22QDBusConnectionManager21ConnectionRequestDataEEEEvMS4_FvS6_EE4callES9_PS4_PPv
+   fun:_ZN9QtPrivate15FunctionPointerIM22QDBusConnectionManagerFvPNS1_21ConnectionRequestDataEEE4callINS_4ListIJS3_EEEvEEvS5_PS1_PPv
+   fun:_ZN9QtPrivate11QSlotObjectIM22QDBusConnectionManagerFvPNS1_21ConnectionRequestDataEENS_4ListIJS3_EEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb
+   fun:_ZN9QtPrivate15QSlotObjectBase4callEP7QObjectPPv
+   fun:_ZN14QMetaCallEvent13placeMetaCallEP7QObject
+   fun:_ZN7QObject5eventEP6QEvent
+}
+==26444== 727 (184 direct, 543 indirect) bytes in 1 blocks are definitely lost in loss record 209 of 284
+==26444==    at 0x4C2BF79: calloc (vg_replace_malloc.c:762)
+==26444==    by 0x1663CA74: ???
+==26444==    by 0x166409BA: ???
+==26444==    by 0x16643857: ???
+==26444==    by 0x166336FD: ???
+==26444==    by 0x166339BF: ???
+==26444==    by 0x1662F793: ???
+==26444==    by 0x1327FC3B: q_dbus_bus_register(DBusConnection*, DBusError*) (qdbus_symbols_p.h:195)
+==26444==    by 0x132808BE: QDBusConnectionManager::executeConnectionRequest(QDBusConnectionManager::ConnectionRequestData*) (qdbusconnection.cpp:276)
+==26444==    by 0x13286D27: QtPrivate::FunctorCall<QtPrivate::IndexesList<0>, QtPrivate::List<QDBusConnectionManager::ConnectionRequestData*>, void, void (QDBusConnectionManager::*)(QDBusConnectionManager::ConnectionRequestData*)>::call(void (QDBusConnectionManager::*)(QDBusConnectionManager::ConnectionRequestData*), QDBusConnectionManager*, void**) (qobjectdefs_impl.h:152)
+==26444==    by 0x13286ABC: void QtPrivate::FunctionPointer<void (QDBusConnectionManager::*)(QDBusConnectionManager::ConnectionRequestData*)>::call<QtPrivate::List<QDBusConnectionManager::ConnectionRequestData*>, void>(void (QDBusConnectionManager::*)(QDBusConnectionManager::ConnectionRequestData*), QDBusConnectionManager*, void**) (qobjectdefs_impl.h:185)
+==26444==    by 0x13285FF3: QtPrivate::QSlotObject<void (QDBusConnectionManager::*)(QDBusConnectionManager::ConnectionRequestData*), QtPrivate::List<QDBusConnectionManager::ConnectionRequestData*>, void>::impl(int, QtPrivate::QSlotObjectBase*, QObject*, void**, bool*) (qobjectdefs_impl.h:414)
+==26444== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:calloc
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   fun:_ZL19q_dbus_bus_registerP14DBusConnectionP9DBusError
+   fun:_ZN22QDBusConnectionManager24executeConnectionRequestEPNS_21ConnectionRequestDataE
+   fun:_ZN9QtPrivate11FunctorCallINS_11IndexesListIJLi0EEEENS_4ListIJPN22QDBusConnectionManager21ConnectionRequestDataEEEEvMS4_FvS6_EE4callES9_PS4_PPv
+   fun:_ZN9QtPrivate15FunctionPointerIM22QDBusConnectionManagerFvPNS1_21ConnectionRequestDataEEE4callINS_4ListIJS3_EEEvEEvS5_PS1_PPv
+   fun:_ZN9QtPrivate11QSlotObjectIM22QDBusConnectionManagerFvPNS1_21ConnectionRequestDataEENS_4ListIJS3_EEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb
+}
+==26444== 1,119 (368 direct, 751 indirect) bytes in 2 blocks are definitely lost in loss record 232 of 284
+==26444==    at 0x4C2BF79: calloc (vg_replace_malloc.c:762)
+==26444==    by 0x1663CA74: ???
+==26444==    by 0x166414AE: ???
+==26444==    by 0x16649CB7: ???
+==26444==    by 0x16649DD2: ???
+==26444==    by 0x1664A87E: ???
+==26444==    by 0x1664AFD5: ???
+==26444==    by 0x16649B79: ???
+==26444==    by 0x166329FB: ???
+==26444==    by 0x166333DC: ???
+==26444==    by 0x166339D9: ???
+==26444==    by 0x1662F793: ???
+==26444== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:calloc
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+}
+==26444== LEAK SUMMARY:
+==26444==    definitely lost: 1,648 bytes in 22 blocks
+==26444==    indirectly lost: 2,246 bytes in 12 blocks
+==26444==      possibly lost: 0 bytes in 0 blocks
+==26444==    still reachable: 301,336 bytes in 6,818 blocks
+==26444==         suppressed: 0 bytes in 0 blocks
+==26444== Reachable blocks (those to which a pointer was found) are not shown.
+==26444== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==26444== 
+==26444== For counts of detected and suppressed errors, rerun with: -v
+==26444== ERROR SUMMARY: 9 errors from 9 contexts (suppressed: 0 from 0)
